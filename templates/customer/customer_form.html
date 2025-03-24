@@ -1,0 +1,16 @@
+{% extends 'login.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+        <form method = 'POST'>
+              {% csrf_token %}
+
+
+              {{customer_form|crispy}}
+            {{login_form|crispy}}
+
+
+        <div class="form-group">
+		            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign up</button>
+		            </div>
+            </form>
+{% endblock %}

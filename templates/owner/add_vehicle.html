@@ -1,0 +1,26 @@
+{% extends 'owner/owner_dashboard.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+<form method="post" enctype="multipart/form-data" class="text-center p-4 shadow-lg rounded bg-light">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        {{ form|crispy }}
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-4 shadow">
+        <i class="fas fa-upload"></i> Upload
+    </button>
+
+    <br><br>
+
+    <p>
+        <a href="{% url 'landing' %}" class="btn btn-outline-secondary btn-lg rounded-pill px-4 shadow">
+            <i class="fas fa-home"></i> Return to Home
+        </a>
+    </p>
+</form>
+
+
+
+{% endblock %}

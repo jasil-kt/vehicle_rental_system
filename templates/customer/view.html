@@ -1,0 +1,76 @@
+{% extends 'customer/customer_dashboard.html' %}
+
+
+    {% block search %}
+    <form method="get" class="form-inline search-form">
+        <div class="d-none d-md-flex ms-4">
+
+            {{ brand_filter.form }}
+            <br>
+            <button class="btn btn-primary mr-2" type="submit">Search</button>
+        </div>
+              </form>
+   {% endblock %}
+{% block content %}
+<div class="container">
+
+
+    {% for message in messages %}
+        <div class="alert alert-primary" role="alert" id = "flash-message" >
+            {{ message }}
+        </div>
+      {% endfor %}
+
+  <div class="row">
+
+ {% for vehicle in data %}
+<div class="col-md-4">
+  <div class="row custom-row-border">
+
+
+<div class="card" style="width: 17rem;">
+  <img  src="{{vehicle.image.url}}" alt="Product Image" style="width: 300px; height: 180px;" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h4 class="card-title">{{vehicle.name}}</h4>
+    <h6 class="card-title">{{vehicle.vehicle_type}}</h6>
+     <p class="card-text">{{vehicle.description}}</p>
+    <p class="card-text">{{vehicle.price_per_day}}</p>
+    <p class="card-text">{{vehicle.available}}</p>
+
+
+  </div>
+
+  <div class="card-body">
+      <a class="btn btn-primary" href="{% url 'book_vehicle' vehicle.id %}">Book now</a>
+
+  </div>
+</div>
+</div>
+  </div>
+     {% if forloop.counter|divisibleby:3 %}
+        </div><div class="row">
+      {% endif %}
+
+{% endfor %}
+
+ </div>
+  </div>
+
+
+
+
+<script>
+    // Select all alert messages
+    const alerts = document.querySelectorAll('#flash-message');
+
+    // Set a timeout to remove each alert after 5 seconds
+    alerts.forEach(alert => {
+        setTimeout(() => {
+            alert.style.display = 'none';
+        }, 3000); // 3seconds
+    });
+</script>
+
+{% endblock %}
+
+
