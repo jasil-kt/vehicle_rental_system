@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 
 from car_app.forms import login_form, owner_form, customer_form
@@ -80,3 +80,7 @@ def login_view(request):
         else:
              messages.info(request,'Invalid Credentials')
     return render(request,'login1.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('login_view')

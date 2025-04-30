@@ -1,0 +1,38 @@
+{% extends 'owner/owner_dashboard.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Booking Management</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Vehicle</th>
+                <th>Customer</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Total Price</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.vehicle.name }}</td>
+                <td>{{ booking.customer.name }}<br>{{ booking.customer.email }}</td>
+                <td>{{ booking.start_date }}</td>
+                <td>{{ booking.end_date }}</td>
+                <td>₹ {{ booking.total_price }}</td>
+                <td>
+                    {% if booking.status == 0 %}
+                        <span class="text-warning">Pending</span>
+                    {% else %}
+                        <span class="text-success">Approved</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="6">No bookings found.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

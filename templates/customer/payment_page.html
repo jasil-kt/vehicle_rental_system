@@ -1,0 +1,15 @@
+{% extends 'customer/customer_dashboard.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+
+
+<form method="POST">
+    <h3>Enter Your Payment Details:</h3>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <h4>Total amount to pay:{{vehicle.vehicle.price_per_day}}</h4>
+    <button type="submit" class="btn btn-primary">Pay Now</button>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'customer/customer_dashboard.html' %}
+{% block content %}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Payment Tracking</h2>
+
+    {% if payments %}
+    <div class="table-responsive">
+        <table class="table table-hover table-striped shadow">
+            <thead class="thead-light">
+                <tr>
+                    <th>Vehicle</th>
+                    <th>Rental Period</th>
+                    <th>Total Price (Rs.)</th>
+                    <th>Card Ending</th>
+                    <th>Expiry Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in payments %}
+                <tr>
+                    <td>{{ p.book.vehicle.name }}</td>
+                    <td>{{ p.book.start_date }} to {{ p.book.end_date }}</td>
+                    <td>{{ p.book.total_price }}</td>
+                    <td>**** {{ p.card_no|slice:"-4:" }}</td>
+                    <td>{{ p.expiry_date }}</td>
+                    <td>
+                        {% if p.book.status == 1 %}
+                        <span class="badge badge-success">Paid</span>
+                        {% else %}
+                        <span class="badge badge-warning">Pending</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="alert alert-info text-center" role="alert">
+        No payment records found.
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

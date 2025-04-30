@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from car_app.forms import vehicle_form
-from car_app.models import owner, vehicle
+from car_app.models import owner, vehicle, book_now
 
 
 def owner_dashboard(request):
@@ -45,3 +45,20 @@ def delete_vehicle(request,id):
     return redirect("vehicle_details")
 
     return render(request,"view.html")
+
+def owner_booking_management(request):
+    try:
+        owner_data = owner.objects.get(owner_data=request.user)
+    except owner.DoesNotExist:
+        return redirect('owner_dashboard')
+
+
+    owner_vehicles = vehicle.objects.filter(owner=owner_data)
+
+
+    bookings = book_now.objects.filter(vehicle__in=owner_vehicles).order_by('-start_date')
+
+    return render(request, "owner/booking_management.html", {
+        "bookings": bookings,
+        "owner": owner_data
+    })

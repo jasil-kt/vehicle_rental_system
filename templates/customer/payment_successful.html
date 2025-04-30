@@ -1,0 +1,25 @@
+{% extends 'customer/customer_dashboard.html' %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-success">Payment Successful!</h2>
+        <p class="lead mt-3">Thank you for your booking.</p>
+        <p>Your booking has been processed successfully.</p>
+
+        <div class="mt-4">
+            <a href="" class="btn btn-primary">View Booking</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        max-width: 500px;
+        margin: auto;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+{% endblock %}

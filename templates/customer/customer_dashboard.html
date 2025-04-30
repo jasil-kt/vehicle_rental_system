@@ -295,12 +295,6 @@
     👤 {{ request.user.get_username|default:"Guest" }}
   </span>
 </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'customer_dashboard' %}">
-                <i class="mdi mdi-view-dashboard menu-icon"></i>
-                <span class="menu-title">Dashboard</span>
-            </a>
-        </li>
  <li class="nav-item">
             <a class="nav-link" href="{% url 'vehicle_view' %}">
                 <i class="mdi mdi-car menu-icon"></i>
@@ -309,7 +303,7 @@
         </li>
         <!-- Vehicle Management -->
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{% url 'my_booking' %}">
                 <i class="mdi mdi-car menu-icon"></i>
                 <span class="menu-title">My Bookings</span>
             </a>
@@ -317,7 +311,7 @@
 
         <!-- Payment Tracking -->
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{% url 'payment_tracking' %}">
                 <i class="mdi mdi-cash-multiple menu-icon"></i>
                 <span class="menu-title">Payment Tracking</span>
             </a>
@@ -325,7 +319,7 @@
 
         <!-- Logout -->
         <li class="nav-item">
-            <a class="nav-link text-danger" href="">
+            <a class="nav-link text-danger" href="{% url 'logout_view' %}">
                 <i class="mdi mdi-logout menu-icon"></i>
                 <span class="menu-title">Logout</span>
             </a>

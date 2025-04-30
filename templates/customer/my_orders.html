@@ -1,0 +1,50 @@
+{% extends "customer/customer_dashboard.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">My Bookings</h2>
+
+    {% if data %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Vehicle</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Total Price (Rs.)</th>
+                    <th>Payment Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in data %}
+                <tr>
+                    <td>{{ booking.book.vehicle.name }}</td>
+                    <td>{{ booking.book.start_date }}</td>
+                    <td>{{ booking.book.end_date }}</td>
+                    <td>Rs. {{ booking.book.total_price }}</td>
+                    <td>
+                        {% if booking.book.status == 1 %}
+                            <span class="badge bg-success">Paid</span>
+                        {% else %}
+                            <span class="badge bg-warning">Pending</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if booking.book.status == 1 %}
+                            <a href="{% url 'invoice_view' booking.id %}" class="btn btn-primary btn-sm">View Invoice</a>
+                        {% else %}
+                            <a href="{% url 'pay_now' booking.book.id %}" class="btn btn-success btn-sm">Pay Now</a>
+                            <a href="{% url 'cancel_booking' booking.book.id %}" class="btn btn-danger btn-sm">Cancel</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-center">You have no bookings yet.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

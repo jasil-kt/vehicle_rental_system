@@ -322,23 +322,16 @@
 
         <!-- Booking Management -->
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{% url 'owner_booking_management' %}">
                 <i class="mdi mdi-calendar-check menu-icon"></i>
                 <span class="menu-title">Booking Management</span>
             </a>
         </li>
 
-        <!-- Payment Tracking -->
-        <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="mdi mdi-cash-multiple menu-icon"></i>
-                <span class="menu-title">Payment Tracking</span>
-            </a>
-        </li>
 
         <!-- Logout -->
         <li class="nav-item">
-            <a class="nav-link text-danger" href="">
+            <a class="nav-link text-danger" href="{% url 'logout_view' %}">
                 <i class="mdi mdi-logout menu-icon"></i>
                 <span class="menu-title">Logout</span>
             </a>

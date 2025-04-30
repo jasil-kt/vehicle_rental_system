@@ -1,0 +1,13 @@
+{% extends 'customer/customer_dashboard.html' %}
+{% block content %}
+<div class="container mt-4">
+  <div class="card p-4 shadow">
+    <h3 class="mb-3">Payment Invoice</h3>
+    <p><b>Vehicle:</b> {{ invoice.book.vehicle.name }}</p>
+    <p><b>From:</b> {{ invoice.book.start_date }} | <b>To:</b> {{ invoice.book.end_date }}</p>
+    <p><b>Amount Paid:</b> ₹{{ invoice.book.total_price }}</p>
+    <p><b>Payment Method:</b> Card</p>
+    <p><b>Transaction Status:</b> Completed</p>
+  </div>
+</div>
+{% endblock %}
