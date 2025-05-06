@@ -1,0 +1,40 @@
+{% extends 'admin/admin_dashboard.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Payment Tracking</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Customer</th>
+                <th>Vehicle</th>
+                <th>Booking Date</th>
+                <th>Rental Period</th>
+                <th>Total Amount</th>
+                <th>Card No.</th>
+                <th>Expiry</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for payment in payments %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ payment.book.customer.name }}</td>
+                <td>{{ payment.book.vehicle.name }}</td>
+                <td>{{ payment.book.start_date }} to {{ payment.book.end_date }}</td>
+                <td>{{ payment.book.end_date|date:"Y-m-d" }} - {{ payment.book.start_date|date:"Y-m-d" }}</td>
+                <td>₹{{ payment.book.total_price }}</td>
+                <td>{{ payment.card_no }}</td>
+                <td>{{ payment.expiry_date }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8" class="text-center">No payment records found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

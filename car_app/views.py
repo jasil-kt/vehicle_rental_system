@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from car_app.forms import login_form, owner_form, customer_form
@@ -9,6 +10,7 @@ from car_app.forms import login_form, owner_form, customer_form
 def landing(request):
     return render(request,'landing.html')
 
+@login_required(login_url='landing')
 def admin_dashboard(request):
     return render(request,'admin/admin_dashboard.html')
 

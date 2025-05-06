@@ -1,13 +1,27 @@
 {% extends 'customer/customer_dashboard.html' %}
 {% block content %}
-<div class="container mt-4">
-  <div class="card p-4 shadow">
-    <h3 class="mb-3">Payment Invoice</h3>
-    <p><b>Vehicle:</b> {{ invoice.book.vehicle.name }}</p>
-    <p><b>From:</b> {{ invoice.book.start_date }} | <b>To:</b> {{ invoice.book.end_date }}</p>
-    <p><b>Amount Paid:</b> ₹{{ invoice.book.total_price }}</p>
-    <p><b>Payment Method:</b> Card</p>
-    <p><b>Transaction Status:</b> Completed</p>
-  </div>
-</div>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Invoice PDF</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h3 { text-align: center; }
+        .invoice { padding: 20px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="invoice">
+        <h3>Payment Invoice</h3>
+        <p><strong>Vehicle:</strong> {{ invoice.book.vehicle.name }}</p>
+        <p><strong>From:</strong> {{ invoice.book.start_date }} | <strong>To:</strong> {{ invoice.book.end_date }}</p>
+        <p><strong>Amount Paid:</strong> ₹{{ invoice.book.total_price }}</p>
+        <p><strong>Payment Method:</strong> Card</p>
+        <p><strong>Transaction Status:</strong> Completed</p>
+      <a href="{% url 'download_invoice_pdf' invoice.id %}" class="btn btn-secondary mt-3">Download as PDF</a>
+
+    </div>
+</body>
+</html>
+
 {% endblock %}

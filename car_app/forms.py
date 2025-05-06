@@ -44,3 +44,14 @@ class payment_form(forms.ModelForm):
         model = pay
         fields =  "__all__"
         exclude = ('book',)
+
+class CustomerProfileForm(forms.ModelForm):
+    class Meta:
+        model = customer
+        fields = ['name', 'email', 'address', 'phone_no']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'address': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone_no': forms.TextInput(attrs={'class': 'form-control'}),
+        }

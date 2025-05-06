@@ -1,6 +1,6 @@
 from django.urls import path
 
-from car_app import views, customer_views, owner_views
+from car_app import views, customer_views, owner_views, admin_views
 
 urlpatterns = [
     path('',views.landing,name="landing"),
@@ -26,4 +26,14 @@ urlpatterns = [
     path("invoice_view/<int:id>/", customer_views.invoice_view, name="invoice_view"),
     path('logout_view', views.logout_view, name="logout_view"),
     path("owner_booking_management", owner_views.owner_booking_management, name="owner_booking_management"),
+    path('customer_details', admin_views.customer_details, name="customer_details"),
+    path('owner_details', admin_views.owner_details, name="owner_details"),
+    path('view_vehicle', admin_views.view_vehicle, name="view_vehicle"),
+    path("delete_customer/<int:id>/",admin_views.delete_customer,name="delete_customer"),
+    path("delete_owner/<int:id>/", admin_views.delete_owner, name="delete_owner"),
+    path('payment_history', admin_views.payment_history, name="payment_history"),
+    path("edit_customer_profile", customer_views.edit_customer_profile, name="edit_customer_profile"),
+    path("customer_profile", customer_views.customer_profile, name="customer_profile"),
+    path('invoice/<int:id>/download/', customer_views.download_invoice_pdf, name='download_invoice_pdf'),
+
 ]

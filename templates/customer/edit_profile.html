@@ -1,0 +1,12 @@
+{% extends 'customer/customer_dashboard.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h3>Edit Profile</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Update</button>
+        <a href="{% url 'edit_customer_profile' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

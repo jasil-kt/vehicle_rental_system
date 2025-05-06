@@ -11,7 +11,7 @@ class BrandFilter(django_filters.FilterSet):
     class Meta:
         model = vehicle
         fields = ('name',)
-
+#
 # class ownerFilter(django_filters.FilterSet):
 #     product_user__name = CharFilter(label="", lookup_expr='icontains', widget=forms.TextInput(attrs={'placeholder': 'Search seller','class':'form-control'}))
 #     class Meta:

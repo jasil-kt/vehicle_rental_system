@@ -295,108 +295,137 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
+
           <li class="nav-item">
-            <a class="nav-link" href=" {% static 'index.html' %} ">
-              <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
+            <a class="nav-link" href="{% url 'customer_details' %}">
+                <i class="mdi mdi-car menu-icon"></i>
+                <span class="menu-title">Customer Details</span>
             </a>
-          </li>
+        </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href=" {% static '#ui-basic' %} " aria-expanded="false" aria-controls="ui-basic">
-              <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">UI Elements</span>
-              <i class="menu-arrow"></i>
+            <a class="nav-link" href="{% url 'owner_details' %}">
+                <i class="mdi mdi-car menu-icon"></i>
+                <span class="menu-title">Owner Details</span>
             </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/ui-features/buttons.html' %} ">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/ui-features/dropdowns.html' %} ">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/ui-features/typography.html' %} ">Typography</a></li>
-              </ul>
-            </div>
-          </li>
+        </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href=" {% static '#form-elements' %} " aria-expanded="false" aria-controls="form-elements">
-              <i class="icon-columns menu-icon"></i>
-              <span class="menu-title">Form elements</span>
-              <i class="menu-arrow"></i>
+            <a class="nav-link" href="{% url 'view_vehicle' %}">
+                <i class="mdi mdi-car menu-icon"></i>
+                <span class="menu-title">Vehicles</span>
             </a>
-            <div class="collapse" id="form-elements">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href=" {% static 'pages/forms/basic_elements.html' %} ">Basic Elements</a></li>
-              </ul>
-            </div>
-          </li>
+        </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href=" {% static '#charts' %} " aria-expanded="false" aria-controls="charts">
-              <i class="icon-bar-graph menu-icon"></i>
-              <span class="menu-title">Charts</span>
-              <i class="menu-arrow"></i>
+            <a class="nav-link" href="{% url 'payment_history' %}">
+                <i class="mdi mdi-car menu-icon"></i>
+                <span class="menu-title">Payment Tracking</span>
             </a>
-            <div class="collapse" id="charts">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/charts/chartjs.html' %} ">Chartjs1</a></li>
-              </ul>
-            </div>
-          </li>
+        </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href=" {% static '#tables' %} " aria-expanded="false" aria-controls="tables">
-              <i class="icon-grid-2 menu-icon"></i>
-              <span class="menu-title">Tables</span>
-              <i class="menu-arrow"></i>
+            <a class="nav-link text-danger" href="{% url 'logout_view' %}">
+                <i class="mdi mdi-logout menu-icon"></i>
+                <span class="menu-title">Logout</span>
             </a>
-            <div class="collapse" id="tables">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/tables/basic-table.html' %} ">Basic table</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href=" {% static '#icons' %} " aria-expanded="false" aria-controls="icons">
-              <i class="icon-contract menu-icon"></i>
-              <span class="menu-title">Icons</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="icons">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/icons/mdi.html' %} ">Mdi icons</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href=" {% static '#auth' %} " aria-expanded="false" aria-controls="auth">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">User Pages</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/samples/login.html' %} "> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/samples/register.html' %} "> Register </a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href=" {% static '#error' %} " aria-expanded="false" aria-controls="error">
-              <i class="icon-ban menu-icon"></i>
-              <span class="menu-title">Error pages</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="error">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/samples/error-404.html' %} "> 404 </a></li>
-                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/samples/error-500.html' %} "> 500 </a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href=" {% static 'pages/documentation/documentation.html' %} ">
-              <i class="icon-paper menu-icon"></i>
-              <span class="menu-title">Documentation</span>
-            </a>
-          </li>
+        </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" data-toggle="collapse" href=" {% static '#ui-basic' %} " aria-expanded="false" aria-controls="ui-basic">-->
+<!--              <i class="icon-layout menu-icon"></i>-->
+<!--              <span class="menu-title">UI Elements</span>-->
+<!--              <i class="menu-arrow"></i>-->
+<!--            </a>-->
+<!--            <div class="collapse" id="ui-basic">-->
+<!--              <ul class="nav flex-column sub-menu">-->
+<!--                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/ui-features/buttons.html' %} ">Buttons</a></li>-->
+<!--                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/ui-features/dropdowns.html' %} ">Dropdowns</a></li>-->
+<!--                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/ui-features/typography.html' %} ">Typography</a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" data-toggle="collapse" href=" {% static '#form-elements' %} " aria-expanded="false" aria-controls="form-elements">-->
+<!--              <i class="icon-columns menu-icon"></i>-->
+<!--              <span class="menu-title">Form elements</span>-->
+<!--              <i class="menu-arrow"></i>-->
+<!--            </a>-->
+<!--            <div class="collapse" id="form-elements">-->
+<!--              <ul class="nav flex-column sub-menu">-->
+<!--                <li class="nav-item"><a class="nav-link" href=" {% static 'pages/forms/basic_elements.html' %} ">Basic Elements</a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" data-toggle="collapse" href=" {% static '#charts' %} " aria-expanded="false" aria-controls="charts">-->
+<!--              <i class="icon-bar-graph menu-icon"></i>-->
+<!--              <span class="menu-title">Charts</span>-->
+<!--              <i class="menu-arrow"></i>-->
+<!--            </a>-->
+<!--            <div class="collapse" id="charts">-->
+<!--              <ul class="nav flex-column sub-menu">-->
+<!--                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/charts/chartjs.html' %} ">Chartjs1</a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" data-toggle="collapse" href=" {% static '#tables' %} " aria-expanded="false" aria-controls="tables">-->
+<!--              <i class="icon-grid-2 menu-icon"></i>-->
+<!--              <span class="menu-title">Tables</span>-->
+<!--              <i class="menu-arrow"></i>-->
+<!--            </a>-->
+<!--            <div class="collapse" id="tables">-->
+<!--              <ul class="nav flex-column sub-menu">-->
+<!--                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/tables/basic-table.html' %} ">Basic table</a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" data-toggle="collapse" href=" {% static '#icons' %} " aria-expanded="false" aria-controls="icons">-->
+<!--              <i class="icon-contract menu-icon"></i>-->
+<!--              <span class="menu-title">Icons</span>-->
+<!--              <i class="menu-arrow"></i>-->
+<!--            </a>-->
+<!--            <div class="collapse" id="icons">-->
+<!--              <ul class="nav flex-column sub-menu">-->
+<!--                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/icons/mdi.html' %} ">Mdi icons</a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" data-toggle="collapse" href=" {% static '#auth' %} " aria-expanded="false" aria-controls="auth">-->
+<!--              <i class="icon-head menu-icon"></i>-->
+<!--              <span class="menu-title">User Pages</span>-->
+<!--              <i class="menu-arrow"></i>-->
+<!--            </a>-->
+<!--            <div class="collapse" id="auth">-->
+<!--              <ul class="nav flex-column sub-menu">-->
+<!--                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/samples/login.html' %} "> Login </a></li>-->
+<!--                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/samples/register.html' %} "> Register </a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" data-toggle="collapse" href=" {% static '#error' %} " aria-expanded="false" aria-controls="error">-->
+<!--              <i class="icon-ban menu-icon"></i>-->
+<!--              <span class="menu-title">Error pages</span>-->
+<!--              <i class="menu-arrow"></i>-->
+<!--            </a>-->
+<!--            <div class="collapse" id="error">-->
+<!--              <ul class="nav flex-column sub-menu">-->
+<!--                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/samples/error-404.html' %} "> 404 </a></li>-->
+<!--                <li class="nav-item"> <a class="nav-link" href=" {% static 'pages/samples/error-500.html' %} "> 500 </a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href=" {% static 'pages/documentation/documentation.html' %} ">-->
+<!--              <i class="icon-paper menu-icon"></i>-->
+<!--              <span class="menu-title">Documentation</span>-->
+<!--            </a>-->
+<!--          </li>-->
         </ul>
       </nav>
+      {% block content %}
+
+      {% endblock %}
+
       <!-- partial -->
 <!--      <div class="main-panel">-->
 <!--        <div class="content-wrapper">-->

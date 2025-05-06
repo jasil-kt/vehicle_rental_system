@@ -1,0 +1,19 @@
+{% extends 'customer/customer_dashboard.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="mb-4">My Profile</h2>
+    {% if customer_data %}
+    <div class="card p-4 shadow-sm">
+        <p><strong>Name:</strong> {{ customer_data.name }}</p>
+        <p><strong>Email:</strong> {{ customer_data.email }}</p>
+        <p><strong>Phone:</strong> {{ customer_data.phone_no }}</p>
+        <p><strong>Address:</strong> {{ customer_data.address }}</p>
+        <a href="{% url 'edit_customer_profile' %}" class="btn btn-primary mt-3">Edit Profile</a>
+    </div>
+    {% else %}
+    <div class="alert alert-warning">Profile not found.</div>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -90,7 +90,7 @@
             </div>
           </li>
           <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <a class="nav-link dropdown-toggle" href="{% url 'customer_profile' %}" data-toggle="dropdown" id="profileDropdown">
               <img src=" {% static 'images1/faces/face28.jpg' %} " alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -317,6 +317,7 @@
             </a>
         </li>
 
+
         <!-- Logout -->
         <li class="nav-item">
             <a class="nav-link text-danger" href="{% url 'logout_view' %}">
@@ -327,6 +328,93 @@
         </ul>
       </nav>
       {% block content %}
+      <style>
+    .dashboard-header {
+        background: linear-gradient(to right, #007bff, #00c6ff);
+        color: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .action-card {
+        transition: transform 0.3s ease-in-out;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .action-card:hover {
+        transform: translateY(-5px);
+    }
+    .feature-box {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        height: 100%;
+        background: #f8f9fa;
+    }
+</style>
+
+<div class="container mt-5">
+    <!-- Welcome Banner -->
+    <div class="dashboard-header text-center">
+        <h1 class="display-5">Welcome</h1>
+        <p class="lead">Your journey begins here. Book vehicles, track payments, and manage your profile seamlessly.</p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <div class="card action-card text-center p-4">
+                <i class="fas fa-car fa-2x text-primary mb-3"></i>
+                <h5>Book a Vehicle</h5>
+                <a href="{% url 'vehicle_view' %}" class="btn btn-primary mt-2">Browse Vehicles</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card action-card text-center p-4">
+                <i class="fas fa-list-alt fa-2x text-success mb-3"></i>
+                <h5>My Bookings</h5>
+                <a href="{% url 'my_booking' %}" class="btn btn-success mt-2">View Bookings</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card action-card text-center p-4">
+                <i class="fas fa-wallet fa-2x text-warning mb-3"></i>
+                <h5>Payments</h5>
+                <a href="{% url 'payment_tracking' %}" class="btn btn-warning mt-2">Track Payments</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card action-card text-center p-4">
+                <i class="fas fa-user-circle fa-2x text-info mb-3"></i>
+                <h5>Manage Profile</h5>
+                <a href="{% url 'edit_customer_profile' %}" class="btn btn-info mt-2">Edit Profile</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="feature-box">
+                <h5>Instant Booking</h5>
+                <p>Find and reserve your ideal vehicle quickly and easily with real-time availability.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-box">
+                <h5>Secure Payments</h5>
+                <p>Track your payments and get transparent billing for every transaction.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-box">
+                <h5>24/7 Support</h5>
+                <p>Need help? Our support team is available around the clock to assist you.</p>
+            </div>
+        </div>
+    </div>
+</div>
       {% endblock %}
       <!-- partial -->
 <!--      <div class="main-panel">-->

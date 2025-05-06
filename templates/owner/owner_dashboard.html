@@ -300,12 +300,7 @@
     👤 {{ request.user.get_username|default:"Guest" }}
   </span>
 </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'owner_dashboard' %}">
-                <i class="mdi mdi-view-dashboard menu-icon"></i>
-                <span class="menu-title">Dashboard</span>
-            </a>
-        </li>
+
  <li class="nav-item">
             <a class="nav-link" href="{% url 'add_vehicle' %}">
                 <i class="mdi mdi-car menu-icon"></i>
@@ -342,6 +337,42 @@
         </ul>
       </nav>
       {% block content %}
+     <div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Hello, {{ request.user.username }} 👋</h2>
+        <p class="text-muted">Welcome to your dashboard. Manage your vehicles and bookings here.</p>
+    </div>
+
+    <!-- Dashboard Stats -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-6">
+            <div class="card border-0 shadow rounded-4 text-center bg-light">
+                <div class="card-body">
+                    <i class="bi bi-car-front display-4 text-primary mb-3"></i>
+                    <h5 class="card-title">Total Vehicles</h5>
+                    <h3 class="fw-bold">{{ total_vehicles }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border-0 shadow rounded-4 text-center bg-light">
+                <div class="card-body">
+                    <i class="bi bi-journal-check display-4 text-success mb-3"></i>
+                    <h5 class="card-title">Active Bookings</h5>
+                    <h3 class="fw-bold">{{ active_bookings }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Action Buttons -->
+    <div class="text-center">
+        <a href="{% url 'add_vehicle' %}" class="btn btn-outline-primary btn-lg m-2">Add New Vehicle</a>
+        <a href="{% url 'vehicle_details' %}" class="btn btn-outline-success btn-lg m-2">Manage Bookings</a>
+        <a href="{% url 'owner_booking_management' %}" class="btn btn-outline-warning btn-lg m-2">Bookings</a>
+    </div>
+</div>
+
       {% endblock %}
       <!-- partial -->
 <!--      <div class="main-panel">-->
